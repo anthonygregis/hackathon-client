@@ -2,6 +2,7 @@ import React from 'react';
 import Zipform from './Zipform';
 
 const Home = (props) => {
+
     return (
         <div>
             <h1>Covid Test Finder</h1>
