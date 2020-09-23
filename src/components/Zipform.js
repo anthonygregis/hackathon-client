@@ -24,10 +24,6 @@ const Zipform = () => {
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
                         </div>
-
-
-                    
-
                 </form>
             </div>
         </div>
