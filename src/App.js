@@ -90,11 +90,6 @@ let ctr_data = [
 
 function App() {
 
-  // const handleSubmit = () => {
-  //   e.prevent.default
-
-  // }
-
   return (
     <div className="App">
       <Switch>
