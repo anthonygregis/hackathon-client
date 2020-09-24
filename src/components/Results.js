@@ -14,12 +14,10 @@ export default function Results(props) {
   useEffect(() => {
     axios.get(`https://savetheworld-backend.herokuapp.com/clinics/zipcode/${props.location.zipcode}?radius=${props.location.radius}`)
       .then(results => {
-        console.log(results.data)
         setClinics(results.data)
         setIsLoading(false)
       })
       .catch(err => {
-        console.log(err)
         setErrorPresent(true)
       })
   }, [props.location.zipcode, props.location.radius])
