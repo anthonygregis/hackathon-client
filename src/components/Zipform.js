@@ -36,7 +36,7 @@ const Zipform = () => {
                         </div>
                         <div class="input-group-append">
                             <NavLink to={{ pathname: '/results', radius: radius, zipcode: zipcode}}>
-                                Submit{/* <button class="btn btn-outline-secondary" type="button" id="button-addon2" onClick={handleSubmit}>Submit</button> */}
+                                <button class="btn btn-outline-secondary" id="button-addon2">Submit</button>
                             </NavLink>
                         </div>
                 </form>
