@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 
 
 
@@ -8,17 +8,15 @@ const Zipform = () => {
     const [zipcode, setZipcode] = useState("")
     const [radius, setRadius] = useState("5")
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     console.log("Function hit")
-
-        
-    // }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        return <Redirect to={{ pathname:"/results", zipcode: zipcode, radius: radius }} />
+    }
 
     return(
         <div className="zipform_box">
             <div className='container'>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="Zip">Zipcode</label>
 
                     <div class="input-group mb-3">
