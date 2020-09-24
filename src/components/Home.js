@@ -10,6 +10,7 @@ const Home = (props) => {
 
     return (
         <div id="landing" tabIndex="-1">
+            <img width="35vh" className="mt-5" src="image/covid-clinic.png" alt="covid clinic logo"/>
             <h1>Covid Test Finder</h1>
             <h2>Find Covid Testing Near You</h2>
             <Zipform zip={props.zip}/>
