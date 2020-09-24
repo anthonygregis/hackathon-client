@@ -11,16 +11,14 @@ export default function Results(props) {
   let clinicResults = ""
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/clinics/zipcode/${props.location.zipcode}?radius=${props.location.radius}`)
+    axios.get(`https://savetheworld-backend.herokuapp.com/clinics/zipcode/${props.location.zipcode}?radius=${props.location.radius}`)
       .then(results => {
-        console.log(results.data)
         setClinics(results.data)
         setIsLoading(false)
         let resultsDiv = document.getElementById('results')
         resultsDiv.focus()
       })
       .catch(err => {
-        console.log(err)
         setErrorPresent(true)
       })
   }, [props.location.zipcode, props.location.radius])
@@ -97,6 +95,9 @@ export default function Results(props) {
     <>
       {/* {Message} */}
       <h1>Covid-19 Testing Near You</h1>
+      <Link to={{ pathname:"/" }}>
+          <p>Return to Home</p>  
+        </Link> 
       <hr />
       <div className="search-results" tabIndex="-1" id="results">
         {clinicResults}
