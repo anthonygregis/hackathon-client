@@ -12,7 +12,7 @@ export default function Results(props) {
   let clinicResults = ""
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/clinics/zipcode/${props.location.zipcode}?radius=${props.location.radius}`)
+    axios.get(`https://savetheworld-backend.herokuapp.com/${props.location.zipcode}?radius=${props.location.radius}`)
       .then(results => {
         console.log(results.data)
         setClinics(results.data)
