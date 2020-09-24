@@ -11,7 +11,7 @@ export default function Results(props) {
   let clinicResults = ""
 
   useEffect(() => {
-    axios.get(`http://172.26.29.233:3000/clinics/zipcode/${props.location.zipcode}?radius=${props.location.radius}`)
+    axios.get(`http://localhost:4000/clinics/zipcode/${props.location.zipcode}?radius=${props.location.radius}`)
       .then(results => {
         console.log(results.data)
         setClinics(results.data)
