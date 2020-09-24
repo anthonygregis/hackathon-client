@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import {Switch, Route, Redirect} from 'react-router-dom'
 import './App.css';
 import Results from './components/Results'
+import Home from './components/Home'
 
 let ctr_data = [
   {
