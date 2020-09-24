@@ -99,9 +99,8 @@ export default function Results(props) {
 
   return (
     <div tabIndex="-1" id="results">
-      <h1 id="header">Covid-19 Testing Near You</h1>
+      <h1 id="header">COVID-19 Testing Near You</h1>  
       {backLink}
-      <hr />
       <div className="search-results">
         {clinicResults}
       </div>

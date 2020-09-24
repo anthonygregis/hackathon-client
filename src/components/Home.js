@@ -10,8 +10,8 @@ const Home = (props) => {
 
     return (
         <div id="landing" tabIndex="-1">
-            <h1>Covid Test Finder</h1>
-            <h2>Find Covid Testing Near You</h2>
+            <h1>COVID-19 Test Finder</h1>
+            <h2>Find Testing Locations Near You</h2><hr /><br />
             <Zipform zip={props.zip}/>
         </div>
     )
