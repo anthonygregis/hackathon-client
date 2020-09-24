@@ -17,14 +17,14 @@ const Zipform = () => {
         <div className="zipform_box">
             <div className='container'>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="Zip">Zipcode</label>
-                    <div className="input-group mb-3">
-                        <input type="text" className="form-control" placeholder="Enter your zipcode" aria-label="Enter your Zipcode" aria-describedby="button-addon2" aria-required="true" onChange={ (e) => {setZipcode(e.target.value)}} required/>
+                    <label htmlFor="Zip">Zipcode:</label>
+                    <div className="input-group mb-3" style={{display: 'flex', justifyContent: 'center'}}>
+                        <input type="text" className="form-control form-control-lg" style={{maxWidth: '300px'}} placeholder="Enter your zipcode" aria-label="Enter your Zipcode" aria-describedby="button-addon2" aria-required="true" onChange={ (e) => {setZipcode(e.target.value)}} required/>
                     </div>
                         <br></br>
-                        <div className="form-group">
-                            <label htmlFor="radius">Radius</label>
-                            <select className="form-control" id="radius" aria-expanded="false" onChange={ (e) => {setRadius(e.target.value)}}>
+                        <label htmlFor="radius">Radius:</label>
+                        <div className="form-group" style={{display: 'flex', justifyContent: 'center'}}>
+                            <select className="form-control form-control-lg" style={{maxWidth: '300px'}} id="radius" aria-expanded="false" onChange={ (e) => {setRadius(e.target.value)}}>
                                 <option>5 miles</option>
                                 <option>10 miles</option>
                                 <option>15 miles</option>
