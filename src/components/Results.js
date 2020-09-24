@@ -59,13 +59,13 @@ export default function Results(props) {
                   <p className="card-text mb-2"><strong>Telehealth Available:</strong> {clinic.TeleHealthStatus}</p>
                   <p className="card-text mb-2" style={{maxWidth: '400px', margin: '0 auto'}}><strong>Telehealth Status:</strong> {clinic.TelehealthText}</p>
                 </div>
+                <strong>Phone Number:</strong>
+                <p className="card-text"><a href={"tel:" + clinic.CtrPhoneNum}>{clinic.CtrPhoneNum}</a></p>
                 <strong>Address:</strong>
                 <a href={"https://www.google.com/maps/dir/" + props.location.zipcode + "/" + clinic.CtrAddress} target="_blank" rel="noopener noreferrer">
                   <p className="card-text mb-0">{clinic.CtrAddress}</p>
                   <p className="card-text">{clinic.CtrCity}, {clinic.CtrStateAbbr} {clinic.CtrZipcd}</p>
                 </a>
-                <strong>Phone Number:</strong>
-                <p className="card-text"><a href={"tel:" + clinic.CtrPhoneNum}>{clinic.CtrPhoneNum}</a></p>
               </div>
             </div>
             </div>
