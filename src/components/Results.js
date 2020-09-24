@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/results.css'
 
 export default function Results(props) {
   let clinicResults = props.data.map(d => {
@@ -8,7 +9,7 @@ export default function Results(props) {
         <div className="card mb-4" >
           <div className="card-body">
             <h3 className="card-title">{d.CtrNm}</h3>
-            <h6 className="card-subtitle mb-2 text-muted">{d.Distance} Miles Away</h6>
+            <h6 className="card-subtitle mb-3 text-muted">{d.Distance} Miles Away</h6>
             <div className="testing-info">
               <p className="card-text mb-2"><strong>Onsite Testing Available:</strong> {d.Covid19TestStatus}</p>
               <p className="card-text mb-2"><strong>Telehealth Available:</strong> {d.TeleHealthStatus}</p>
