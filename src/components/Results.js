@@ -29,7 +29,7 @@ export default function Results(props) {
   })
   return (
     <>
-      <h1>Clinics/Providers Near You</h1>
+      <h1>Covid-19 Testing Near You</h1>
       <hr />
       <div className="container" >
         {clinicResults}
