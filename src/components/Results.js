@@ -91,6 +91,9 @@ export default function Results(props) {
   return (
     <>
       <h1>Covid-19 Testing Near You</h1>
+      <Link to={{ pathname:"/" }}>
+          <p>Return to Home</p>  
+        </Link> 
       <hr />
       <div className="container" >
         {clinicResults}
