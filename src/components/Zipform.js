@@ -24,7 +24,6 @@ const Zipform = () => {
                         <br></br>
                         <div className="form-group">
                             <label htmlFor="radius">Radius</label>
-                            <select class="form-control" id="radius" onChange={ (e) => {setRadius(e.target.value)}}>
                             <select className="form-control" id="radius" aria-expanded="false" onChange={ (e) => {setRadius(e.target.value)}}>
                                 <option>5 miles</option>
                                 <option>10 miles</option>
