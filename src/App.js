@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import {Switch, Route, Redirect} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import './App.css';
 import Results from './components/Results'
 import Home from './components/Home'
@@ -90,10 +89,11 @@ let ctr_data = [
 ]
 
 function App() {
+
   return (
     <div className="App">
       <Switch>
-        {/* <Route exact path="/" component={Home}/> */}
+        <Route exact path="/" component={Home}/>
         <Route path="/results/" render={(props) => <Results {...props} data={ctr_data}/>}/>
       </Switch>
     </div>
