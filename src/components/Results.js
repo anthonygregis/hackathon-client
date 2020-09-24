@@ -19,7 +19,7 @@ export default function Results(props) {
       .then(results => {
         setClinics(results.data)
         setIsLoading(false)
-        let headerElem = document.getElementById('results')
+        let headerElem = document.getElementById('header')
         headerElem.focus()
         setText('The results page has loaded')
       })
@@ -55,20 +55,20 @@ export default function Results(props) {
           <div className="row" key={clinic.Id}>
             <div className="col">
             <div className="card mb-4" >
-              <div className="card-body">
-                <h2 className="card-title">{siteName}</h2>
-                <p className="card-subtitle mb-2 text-muted">Distance: {clinic.Distance} Miles Away</p>
+              <div className="card-body" tabIndex="0">
+                <h2 className="card-title" tabIndex="-1">{siteName}</h2>
+                <p className="card-subtitle mb-2 text-muted" tabIndex="-1">Distance: {clinic.Distance} Miles Away</p>
                 <div className="testing-info">
-                  <p className="card-text mb-2"><strong>Onsite Testing Available:</strong> {clinic.Covid19TestStatus}</p>
-                  <p className="card-text mb-2"><strong>Telehealth Available:</strong> {clinic.TeleHealthStatus}</p>
-                  <p className="card-text mb-2" style={{maxWidth: '400px', margin: '0 auto'}}><strong>Telehealth Status:</strong> {clinic.TelehealthText}</p>
+                  <p className="card-text mb-2" tabIndex="-1"><strong>Onsite Testing Available:</strong> {clinic.Covid19TestStatus}</p>
+                  <p className="card-text mb-2" tabIndex="-1"><strong>Telehealth Available:</strong> {clinic.TeleHealthStatus}</p>
+                  <p className="card-text mb-2" tabIndex="-1" style={{maxWidth: '400px', margin: '0 auto'}}><strong>Telehealth Status:</strong> {clinic.TelehealthText}</p>
                 </div>
                 <strong>Phone Number:</strong>
-                <p className="card-text"><a href={"tel:" + clinic.CtrPhoneNum}>{clinic.CtrPhoneNum}</a></p>
+                <p className="card-text" tabIndex="-1"><a href={"tel:" + clinic.CtrPhoneNum}>{clinic.CtrPhoneNum}</a></p>
                 <strong>Address:</strong>
-                <a href={"https://www.google.com/maps/dir/" + props.location.zipcode + "/" + clinic.CtrAddress} target="_blank" rel="noopener noreferrer">
-                  <p className="card-text mb-0">{clinic.CtrAddress}</p>
-                  <p className="card-text">{clinic.CtrCity}, {clinic.CtrStateAbbr} {clinic.CtrZipcd}</p>
+                <a href={"https://www.google.com/maps/dir/" + props.location.zipcode + "/" + clinic.CtrAddress} target="_blank" rel="noopener noreferrer" tabIndex="-1">
+                  <p className="card-text mb-0" tabIndex="-1">{clinic.CtrAddress}</p>
+                  <p className="card-text" tabIndex="-1">{clinic.CtrCity}, {clinic.CtrStateAbbr} {clinic.CtrZipcd}</p>
                 </a>
               </div>
             </div>
@@ -102,10 +102,10 @@ export default function Results(props) {
 
 
   return (
-    <div tabIndex="-1" id="results">
-      <h1 id="header">COVID-19 Testing Near You</h1>  
+    <div  id="results">
+      <h1 id="header" tabIndex="-1">COVID-19 Testing Near You</h1>  
       {backLink}
-      <div className="search-results">
+      <div className="search-results" role="grid" >
         {clinicResults}
       </div>
       <Message text={text}/>
