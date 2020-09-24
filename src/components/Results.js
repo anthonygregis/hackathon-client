@@ -8,7 +8,8 @@ export default function Results(props) {
   const [isLoading, setIsLoading] = useState(true)
   const [errorPresent, setErrorPresent] = useState(false)
   
-  let clinicResults = ""
+  let clinicResults = "";
+  let backLink;
 
   useEffect(() => {
     axios.get(`https://savetheworld-backend.herokuapp.com/clinics/zipcode/${props.location.zipcode}?radius=${props.location.radius}`)
@@ -25,6 +26,16 @@ export default function Results(props) {
 
 
   if (!isLoading && !errorPresent) {
+    if (clinics.length === 0) {
+      backLink = ''
+    } else {
+      backLink = (
+        <Link to={{ pathname:"/" }}>
+          <p>Return to Search</p>  
+        </Link> 
+      )
+    } 
+
     if (clinics.length > 0) {
       clinicResults = clinics.map(clinic => {
         let siteName = ""
@@ -36,6 +47,7 @@ export default function Results(props) {
         }
         
         return (
+          
           <div className="row" key={clinic.Id}>
             <div className="col">
             <div className="card mb-4" >
@@ -47,13 +59,13 @@ export default function Results(props) {
                   <p className="card-text mb-2"><strong>Telehealth Available:</strong> {clinic.TeleHealthStatus}</p>
                   <p className="card-text mb-2" style={{maxWidth: '400px', margin: '0 auto'}}><strong>Telehealth Status:</strong> {clinic.TelehealthText}</p>
                 </div>
+                <strong>Phone Number:</strong>
+                <p className="card-text"><a href={"tel:" + clinic.CtrPhoneNum}>{clinic.CtrPhoneNum}</a></p>
                 <strong>Address:</strong>
                 <a href={"https://www.google.com/maps/dir/" + props.location.zipcode + "/" + clinic.CtrAddress} target="_blank" rel="noopener noreferrer">
                   <p className="card-text mb-0">{clinic.CtrAddress}</p>
                   <p className="card-text">{clinic.CtrCity}, {clinic.CtrStateAbbr} {clinic.CtrZipcd}</p>
                 </a>
-                <strong>Phone Number:</strong>
-                <p className="card-text"><a href={"tel:" + clinic.CtrPhoneNum}>{clinic.CtrPhoneNum}</a></p>
               </div>
             </div>
             </div>
@@ -65,7 +77,7 @@ export default function Results(props) {
         <>
           <p>No clinics in given radius, please try again.</p>
           <Link to={{ pathname: "/" }}>
-            <p>Return</p>
+            <p>Return to Search</p>
           </Link>
         </>
       )
@@ -76,7 +88,7 @@ export default function Results(props) {
       <>
         <p>Error processing request, try again.</p>
         <Link to={{ pathname:"/" }}>
-          <p>Return</p>  
+          <p>Return to Search</p>  
         </Link> 
       </>)
     } else {
@@ -84,12 +96,11 @@ export default function Results(props) {
     }
   }
 
+
   return (
     <div tabIndex="-1" id="results">
       <h1 id="header">Covid-19 Testing Near You</h1>
-      <Link to={{ pathname:"/" }}>
-          <p>Return to Home</p>  
-        </Link> 
+      {backLink}
       <hr />
       <div className="search-results">
         {clinicResults}
