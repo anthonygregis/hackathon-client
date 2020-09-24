@@ -15,3 +15,12 @@ h1 {
   color: #3A539B;
   font-weight: 700;
 }
+
+a {
+  text-decoration: underline;
+  color: #3A539B;
+}
+
+a:hover {
+  color: #d16872
+}
