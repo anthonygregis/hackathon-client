@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
-import '../styles/results.css'
+import '../styles/results.css';
+import Message from './Message';
 const axios = require('axios');
 
 export default function Results(props) {
   const [clinics, setClinics] = useState([])
+  const [text, setText] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [errorPresent, setErrorPresent] = useState(false)
+
   
   let clinicResults = "";
   let backLink;
@@ -18,6 +21,7 @@ export default function Results(props) {
         setIsLoading(false)
         let headerElem = document.getElementById('results')
         headerElem.focus()
+        setText('The results page has loaded')
       })
       .catch(err => {
         setErrorPresent(true)
@@ -104,6 +108,7 @@ export default function Results(props) {
       <div className="search-results">
         {clinicResults}
       </div>
+      <Message text={text}/>
     </div>
     )
 }
