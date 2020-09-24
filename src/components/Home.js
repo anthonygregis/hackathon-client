@@ -6,7 +6,7 @@ const Home = (props) => {
     return (
         <div>
             <h1>Covid Test Finder</h1>
-            <h3>Find Covid Testing Near You</h3>
+            <h2>Find Covid Testing Near You</h2>
             <Zipform zip={props.zip}/>
         </div>
     )

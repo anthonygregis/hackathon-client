@@ -4,7 +4,6 @@ import '../styles/results.css'
 const axios = require('axios');
 
 export default function Results(props) {
-
   const [clinics, setClinics] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [errorPresent, setErrorPresent] = useState(false)
@@ -17,6 +16,8 @@ export default function Results(props) {
         console.log(results.data)
         setClinics(results.data)
         setIsLoading(false)
+        let resultsDiv = document.getElementById('results')
+        resultsDiv.focus()
       })
       .catch(err => {
         console.log(err)
@@ -41,8 +42,8 @@ export default function Results(props) {
             <div className="col">
             <div className="card mb-4" >
               <div className="card-body">
-                <h3 className="card-title">{siteName}</h3>
-                <h6 className="card-subtitle mb-2 text-muted">Distance: {clinic.Distance} Miles Away</h6>
+                <h2 className="card-title">{siteName}</h2>
+                <p className="card-subtitle mb-2 text-muted">Distance: {clinic.Distance} Miles Away</p>
                 <div className="testing-info">
                   <p className="card-text mb-2"><strong>Onsite Testing Available:</strong> {clinic.Covid19TestStatus}</p>
                   <p className="card-text mb-2"><strong>Telehealth Available:</strong> {clinic.TeleHealthStatus}</p>
@@ -85,14 +86,19 @@ export default function Results(props) {
     }
   }
 
-  
+  const Message = () => (
+    <div aria-live="polite" aria-atomic="true">
+      Navigated to results page
+    </div>
+  );
 
 
   return (
     <>
+      {/* {Message} */}
       <h1>Covid-19 Testing Near You</h1>
       <hr />
-      <div className="container" >
+      <div className="search-results" tabIndex="-1" id="results">
         {clinicResults}
       </div>
     </>
