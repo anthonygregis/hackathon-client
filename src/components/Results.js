@@ -15,8 +15,8 @@ export default function Results(props) {
       .then(results => {
         setClinics(results.data)
         setIsLoading(false)
-        let resultsDiv = document.getElementById('results')
-        resultsDiv.focus()
+        let headerElem = document.getElementById('results')
+        headerElem.focus()
       })
       .catch(err => {
         setErrorPresent(true)
@@ -84,24 +84,16 @@ export default function Results(props) {
     }
   }
 
-  const Message = () => (
-    <div aria-live="polite" aria-atomic="true">
-      Navigated to results page
-    </div>
-  );
-
-
   return (
-    <>
-      {/* {Message} */}
-      <h1>Covid-19 Testing Near You</h1>
+    <div tabIndex="-1" id="results">
+      <h1 id="header">Covid-19 Testing Near You</h1>
       <Link to={{ pathname:"/" }}>
           <p>Return to Home</p>  
         </Link> 
       <hr />
-      <div className="search-results" tabIndex="-1" id="results">
+      <div className="search-results">
         {clinicResults}
       </div>
-    </>
+    </div>
     )
 }
